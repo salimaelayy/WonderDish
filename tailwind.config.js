@@ -21,6 +21,11 @@ export default {
                 'light-yellow': '#f4d58d',
                 'bright-red': '#bf0603',
                 'dark-red': '#8d0801',
+                'primary':'#013438',
+                'secondary':'#005B54',
+                'text':'#333333',
+                'background':'#f8f8f8',
+                'accent':'#ca8920',
             },
             // fontFamily: {
             //     sans: ['Figtree', ...defaultTheme.fontFamily.sans, require('flowbite/plugin')],

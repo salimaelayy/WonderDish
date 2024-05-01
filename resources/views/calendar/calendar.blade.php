@@ -6,7 +6,7 @@
         style="background-image: url('img/image.png'); background-size: cover; background-position: center;">
         <div class="absolute inset-0">
             <div class="bg-black bg-opacity-50 absolute inset-0"></div>
-            <div class="container mx-auto flex flex-col items-center justify-center h-full text-white relative">
+            <div class="container mx-auto flex flex-col items-center justify-center h-full text-background relative">
                 <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold mb-8 text-center px-4 ">Reservations
                 </h1>
                 <div class=" text-lg font-bold"><a href="/" rel="v:url" property="v:title">Home</a> » <span class="current">Reservations</span></div>
@@ -16,17 +16,17 @@
 <div class="flex mx-auto  max-w-7xl mt-40 flex-col gap-5">
 
     <!-- Calendar -->
-    <div class="w-full bg-white rounded-lg border border-gray-200 p-3">
+    <div class="w-full bg-background rounded-lg border border-gray-200 p-3">
         <div id="calendar"></div>
     </div>
 
     <!-- Event List -->
-    <div class="bg-white rounded-lg border border-gray-200 p-3">
+    <div class="bg-background rounded-lg border border-gray-200 p-3">
         <h2 class="text-xl font-semibold mb-4">Upcoming Events</h2>
         @foreach ($reservations as $reservation)
         <div class="bg-gray-100 rounded-md p-3 mb-2">
             <h3 class="text-lg font-semibold">{{ $reservation->title }}</h3>
-            <p class="text-gray-700">{{ $reservation->timeStart }}</p>
+            <p class="text-secondary">{{ $reservation->timeStart }}</p>
         </div>
         @endforeach
     </div>

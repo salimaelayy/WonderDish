@@ -1,338 +1,82 @@
-{{-- @extends('layouts.index')
-@section('content')
-    @include('home.components.navbar')
-    <style>
-        body {
-            background: #ddd;
-            min-height: 100vh;
-            vertical-align: middle;
-            display: flex;
-            font-family: sans-serif;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .title {
-            margin-bottom: 5vh;
-        }
-
-        .card {
-            margin: auto;
-            max-width: 950px;
-            width: 90%;
-            box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            border-radius: 1rem;
-            border: transparent;
-        }
-
-        @media(max-width:767px) {
-            .card {
-                margin: 3vh auto;
-            }
-        }
-
-        .cart {
-            background-color: #fff;
-            padding: 4vh 5vh;
-            border-bottom-left-radius: 1rem;
-            border-top-left-radius: 1rem;
-        }
-
-        @media(max-width:767px) {
-            .cart {
-                padding: 4vh;
-                border-bottom-left-radius: unset;
-                border-top-right-radius: 1rem;
-            }
-        }
-
-        .summary {
-            background-color: #ddd;
-            border-top-right-radius: 1rem;
-            border-bottom-right-radius: 1rem;
-            padding: 4vh;
-            color: rgb(65, 65, 65);
-        }
-
-        @media(max-width:767px) {
-            .summary {
-                border-top-right-radius: unset;
-                border-bottom-left-radius: 1rem;
-            }
-        }
-
-        .summary .col-2 {
-            padding: 0;
-        }
-
-        .summary .col-10 {
-            padding: 0;
-        }
-
-        .row {
-            margin: 0;
-        }
-
-        .title b {
-            font-size: 1.5rem;
-        }
-
-        .main {
-            margin: 0;
-            padding: 2vh 0;
-            width: 100%;
-        }
-
-        .col-2,
-        .col {
-            padding: 0 1vh;
-        }
-
-        a {
-            padding: 0 1vh;
-        }
-
-        .close {
-            margin-left: auto;
-            font-size: 0.7rem;
-        }
-
-        img {
-            width: 3.5rem;
-        }
-
-        .back-to-shop {
-            margin-top: 4.5rem;
-        }
-
-        h5 {
-            margin-top: 4vh;
-        }
-
-        hr {
-            margin-top: 1.25rem;
-        }
-
-        form {
-            padding: 2vh 0;
-        }
-
-        select {
-            border: 1px solid rgba(0, 0, 0, 0.137);
-            padding: 1.5vh 1vh;
-            margin-bottom: 4vh;
-            outline: none;
-            width: 100%;
-            background-color: rgb(247, 247, 247);
-        }
-
-        input {
-            border: 1px solid rgba(0, 0, 0, 0.137);
-            padding: 1vh;
-            margin-bottom: 4vh;
-            outline: none;
-            width: 100%;
-            background-color: rgb(247, 247, 247);
-        }
-
-        input:focus::-webkit-input-placeholder {
-            color: transparent;
-        }
-
-        .btn {
-            background-color: #000;
-            border-color: #000;
-            color: white;
-            width: 100%;
-            font-size: 0.7rem;
-            margin-top: 4vh;
-            padding: 1vh;
-            border-radius: 0;
-        }
-
-        .btn:focus {
-            box-shadow: none;
-            outline: none;
-            box-shadow: none;
-            color: white;
-            -webkit-box-shadow: none;
-            -webkit-user-select: none;
-            transition: none;
-        }
-
-        .btn:hover {
-            color: white;
-        }
-
-        a {
-            color: black;
-        }
-
-        a:hover {
-            color: black;
-            text-decoration: none;
-        }
-
-        #code {
-            background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253), rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
-            background-repeat: no-repeat;
-            background-position-x: 95%;
-            background-position-y: center;
-        }
-    </style>
-
-
-    <div class="card">
-        <div class="row">
-            <div class="col-md-8 cart">
-                <div class="title">
-                    <div class="row">
-                        <div class="col">
-                            <h4><b>food Cart</b></h4>
-                        </div>
-                        <div class="col align-self-center text-right text-muted">3 items</div>
-                    </div>
-                </div>
-                <div class="row border-top border-bottom">
-                    <div class="row main align-items-center">
-                        <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>
-                        <div class="col">
-                            <div class="row text-muted">plat</div>
-                            <div class="row">plat</div>
-                        </div>
-                        <div class="col">
-                            <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-                        </div>
-                        <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="row main align-items-center">
-                        <div class="col-2"><img class="img-fluid" src=""></div>
-                        <div class="col">
-                            <div class="row text-muted">plat</div>
-                            <div class="row">plat</div>
-                        </div>
-                        <div class="col">
-                            <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-                        </div>
-                        <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
-                    </div>
-                </div>
-                <div class="row border-top border-bottom">
-                    <div class="row main align-items-center">
-                        <div class="col-2"><img class="img-fluid" src=""></div>
-                        <div class="col">
-                            <div class="row text-muted">plat</div>
-                            <div class="row">plat</div>
-                        </div>
-                        <div class="col">
-                            <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-                        </div>
-                        <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
-                    </div>
-                </div>
-                <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span>
-                </div>
-            </div>
-            <div class="col-md-4 summary">
-                <div>
-                    <h5><b>Summary</b></h5>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col" style="padding-left:0;">ITEMS 3</div>
-                    <div class="col text-right">&euro; 132.00</div>
-                </div>
-                <form>
-                    <p>FOOD</p>
-                    <select>
-                        <option class="text-muted">Standard-Delivery- &euro;5.00</option>
-                    </select>
-                    <p>GIVE CODE</p>
-                    <input id="code" placeholder="Enter your code">
-                </form>
-                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                    <div class="col">TOTAL PRICE</div>
-                    <div class="col text-right">&euro; 137.00</div>
-                </div>
-                <button class="btn">CHECKOUT</button>
-            </div>
-        </div>
-
-    </div>
-@endsection --}}
-
 @extends('layouts.index')
-
 @section('content')
+    <!-- Section Menu -->
+
     @include('home.components.navbar')
 
-    <div class="card">
-        <!-- Cart items display -->
-        <div class="row">
-            <div class="col-md-8 cart">
-                <div class="title">
-                    <div class="row">
-                        <div class="col">
-                            <h4><b>Cart</b></h4>
-                        </div>
-                        <div class="col align-self-center text-right text-muted">{{ count($cart->items ?? []) }} items</div>
-                    </div>
-                </div>
-
-                <!-- Loop through cart items -->
-                @foreach ($cart->items ?? [] as $item)
-                <div class="row border-top border-bottom">
-                    <div class="row main align-items-center">
-                        <div class="col-2"><img class="img-fluid" src="{{ $item['image'] }}"></div>
-                        <div class="col">
-                            <div class="row text-muted">{{ $item['name'] }}</div>
-                            <div class="row">{{ $item['description'] }}</div>
-                        </div>
-                        <div class="col">
-                            <!-- Update quantity and remove item links -->
-                            <a href="#">-</a>
-                            <a href="#" class="border">{{ $item['quantity'] }}</a>
-                            <a href="#">+</a>
-                        </div>
-                        <div class="col">&euro; {{ $item['price'] * $item['quantity'] }} <span class="close">&#10005;</span></div>
-                    </div>
-                </div>
-                @endforeach
-
-                <!-- Back to shop link -->
-                <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
-            </div>
-
-            <!-- Cart summary -->
-            <div class="col-md-4 summary">
-                <div>
-                    <h5><b>Summary</b></h5>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col" style="padding-left:0;">ITEMS {{ count($cart->items ?? []) }}</div>
-                    <!-- Display total price -->
-                    <div class="col text-right">&euro; 55</div>
-                </div>
-                <form>
-                    <p>Delivery</p>
-                    <select>
-                        <option class="text-muted">Standard Delivery - &euro;5.00</option>
-                    </select>
-                    <p>Enter your code</p>
-                    <input id="code" placeholder="Enter your code">
-                </form>
-                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                    <div class="col">TOTAL PRICE</div>
-                    {{-- <!-- Display total price -->
-                    <div class="col text-right">&euro; {{ $totalPrice }}</div>
-                     --}}
-                    <div class="col text-right">&euro; 555</div>
-                </div>
-                <button class="btn">CHECKOUT</button>
+    <section class="section1 h-96 relative"
+        style="background-image: url('img/image.png'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0">
+            <div class="bg-black bg-opacity-50 absolute inset-0"></div>
+            <div class="container mx-auto flex flex-col items-center justify-center h-full text-background relative">
+                <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold mb-8 text-center px-4 ">Cart
+                </h1>
+                <div class=" text-lg font-bold"><a href="/" rel="v:url" property="v:title">Home</a> » <span class="current">Cart</span></div>
             </div>
         </div>
+    </section>
+<section class="py-24 relative  bg-background ">
+    <div class="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto py-6 px-auto shadow-xl rounded-md">
+
+        <h2 class="title font-manrope font-bold text-4xl leading-10 mb-8 text-center text-primary">Shopping Cart
+        </h2>
+        <div class="hidden lg:grid grid-cols-2 py-6">
+            <div class="font-normal text-xl leading-8 text-secondary">Product</div>
+            <p class="font-normal text-xl leading-8 text-secondary flex items-center justify-between">
+                <span class="w-full max-w-[200px] text-center">Delivery Charge</span>
+                <span class="w-full max-w-[260px] text-center">Quantity</span>
+                <span class="w-full max-w-[200px] text-center">Total</span>
+            </p>
+        </div>
+
+        @for ($i = 0; $i < 4; $i++)
+        <div class="grid grid-cols-1 lg:grid-cols-2 min-[550px]:gap-6 border-t border-gray-200 py-6">
+            <div class="flex items-center flex-col min-[550px]:flex-row gap-3 min-[550px]:gap-6 w-full max-xl:justify-center max-xl:max-w-xl max-xl:mx-auto">
+                <div class="img-box"><img src="https://placehold.it/200x200" alt="perfume bottle image" class="xl:w-[140px]"></div>
+                <div class="pro-data w-full max-w-sm ">
+                    <h5 class="font-semibold text-xl leading-8 text-secondary max-[550px]:text-center">Product Name</h5>
+                    <p class="font-normal text-lg leading-8 text-text my-2 min-[550px]:my-3 max-[550px]:text-center">Category</p>
+                    <h6 class="font-medium text-lg leading-8 text-accent  max-[550px]:text-center">$120.00</h6>
+                </div>
+            </div>
+            <div class="flex items-center flex-col min-[550px]:flex-row w-full max-xl:max-w-xl max-xl:mx-auto gap-2">
+                <h6 class="font-manrope font-bold text-2xl leading-9 text-text w-full max-w-[176px] text-center">$15.00</h6>
+                <div class="flex items-center w-full mx-auto justify-center">
+                    <button class="group rounded-l-full px-6 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <input type="text" class="border-y border-gray-200 outline-none text-gray-900 font-semibold text-lg w-full max-w-[118px] min-w-[80px] placeholder:text-gray-900 py-[15px] text-center bg-transparent" placeholder="1">
+                    <button class="group rounded-r-full px-6 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <h6 class="text-accent font-manrope font-bold text-2xl leading-9 w-full max-w-[176px] text-center">$120.00</h6>
+            </div>
+        </div>
+        @endfor
+
+        <div class="bg-gray-50 rounded-xl p-6 w-full mb-8 max-lg:max-w-xl max-lg:mx-auto">
+            <div class="flex items-center justify-between w-full mb-6">
+                <p class="font-normal text-xl leading-8 text-text">Sub Total</p>
+                <h6 class="font-semibold text-xl leading-8 text-secondary">$360.00</h6>
+            </div>
+            <div class="flex items-center justify-between w-full pb-6 border-b border-gray-200">
+                <p class="font-normal text-xl leading-8 text-text">Delivery Charge</p>
+                <h6 class="font-semibold text-xl leading-8 text-secondary">$45.00</h6>
+            </div>
+            <div class="flex items-center justify-between w-full py-6">
+                <p class="font-manrope font-medium text-2xl leading-9 text-primary">Total</p>
+                <h6 class="font-manrope font-medium text-2xl leading-9 text-accent">$405.00</h6>
+            </div>
+        </div>
+        <div class="flex items-center flex-col sm:flex-row justify-center gap-3 mt-8">
+            
+            <button class="rounded-full w-full max-w-[280px] py-4 text-center justify-center items-center bg-accent font-semibold text-lg text-white flex transition-all duration-500 hover:bg-indigo-700">Continue to Payment
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
     </div>
-@endsection
+</section>
+
+    
+    @include('home.components.footer')

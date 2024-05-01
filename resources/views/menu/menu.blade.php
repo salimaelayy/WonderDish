@@ -115,20 +115,20 @@
             
             <section class="section py-4">
                 <div class="container mx-auto my-8">
-                    <p class=" text-start text-6xl ">Let's TakeAway Something.</p>
+                    <p class=" text-primary text-start text-6xl ">Let's TakeAway Something.</p>
                 </div>
                 <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach ($menus as $menu)
-                    <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+                    <div class=" rounded-3xl shadow-xl overflow-hidden">
                         <div class="h-56 md:h-64 lg:h-72" style="background-image: url('{{ asset('img/pizza.jpg' /* . $menu->image */ ) }}'); background-size: cover; background-position: center;"></div>
                         <div class="p-4 sm:p-6">
-                            <p class="font-bold text-gray-700 text-2xl leading-7 mb-1">{{ $menu->name }}</p>
+                            <p class="font-bold text-text text-2xl leading-7 mb-1">{{ $menu->name }}</p>
                             <div class="flex flex-row">
                                 <p class="text-[#3C3C4399] text-lg mr-2 line-through">{{ $menu->old_price }}</p>
-                                <p class="text-lg font-bold text-[#0FB478]">{{ $menu->price }}$</p>
+                                <p class="text-lg font-bold text-accent">{{ $menu->price }}$</p>
                             </div>
-                            <p class="text-[#7C7C80] font-[15px] mt-4">{{ $menu->description }}</p>
-                            <a target="_blank" href="foodiesapp://food/{{ $menu->id }}" class="block mt-6 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#FFC933DD] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80">
+                            <p class="text-primary font-[15px] mt-4">{{ $menu->description }}</p>
+                            <a target="_blank" href="foodiesapp://food/{{ $menu->id }}" class="block mt-6 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-accent rounded-[14px] hover:bg-secondary text-background focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80">
                                 Order
                             </a>
                         </div>

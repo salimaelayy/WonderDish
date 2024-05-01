@@ -1,5 +1,5 @@
-<div class=" bg-bright-red">
-    <div class="max-w-2xl mx-auto text-light-yellow py-10">
+<div class=" bg-accent">
+    <div class="max-w-2xl mx-auto font-medium text-primary py-10">
         <div class="text-center">
             <h3 class="text-3xl mb-3"> Your favorite restaurant </h3>
             <p> Let's meat for eat! </p>
